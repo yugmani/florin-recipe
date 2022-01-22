@@ -8,6 +8,15 @@
       content="width=
     , initial-scale=1.0"
     />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+    </style>
     <link rel="stylesheet" href="main.css" />
     <title>Recipe App</title>
   </head>
@@ -15,11 +24,11 @@
     <div class="food-container">
       <header>
         <input type="text" />
-        <button id="search">Search</button>
+        <button id="search"><i class="fas fa-search"></i></button>
       </header>
       <div class="fav-container">
         <h3>Favorite Meals</h3>
-        <ul>
+        <ul class="fav-meals">
           <li>
             <img
               src="http://d13z1xw8270sfc.cloudfront.net/origin/137599/hs_mixed-fruit.jpg"
@@ -30,7 +39,25 @@
             <img
               src="https://www.foodrepublic.com/wp-content/uploads/2016/12/Faro-Duck-Breast.jpg"
               alt=""
-            /><span>Dry-aged Duck</span>
+            /><span>Dry-aged</span>
+          </li>
+          <li>
+            <img
+              src="https://i0.wp.com/www.biculturalmama.com/wp-content/uploads/2016/05/Chop-Suey-Wikimedia-Commons.jpg?resize=768%2C576&ssl=1"
+              alt=""
+            /><span>Chop Suey</span>
+          </li>
+          <li>
+            <img
+              src="http://d13z1xw8270sfc.cloudfront.net/origin/137599/hs_mixed-fruit.jpg"
+              alt=""
+            /><span>Fruits</span>
+          </li>
+          <li>
+            <img
+              src="https://www.foodrepublic.com/wp-content/uploads/2016/12/Faro-Duck-Breast.jpg"
+              alt=""
+            /><span>Dry-aged</span>
           </li>
           <li>
             <img
@@ -42,12 +69,16 @@
       </div>
       <div class="meals">
         <div class="meal">
-          <meal-header>
-            <img src="" alt="" />
-          </meal-header>
+          <div class="meal-header">
+            <span class="random">Random Recipe</span>
+            <img
+              src="https://static1.squarespace.com/static/5a45133832601e14c4a7d06e/t/5a4e9929005559236df8f0f9/1515120824769/photo.jpg"
+              alt=""
+            />
+          </div>
           <div class="meal-body">
             <h4>Veggie Veggies</h4>
-            <button></button>
+            <button class="fav-btn"><i class="fas fa-heart"></i></button>
           </div>
         </div>
       </div>
