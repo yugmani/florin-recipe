@@ -1,6 +1,8 @@
 const meals = document.getElementById("meals");
+const favContainer = document.getElementById("fav-meals");
 
 getRandomMeal();
+fetchFavMeals();
 
 async function getRandomMeal() {
   const resp = await fetch(
@@ -16,8 +18,9 @@ async function getMealById(id) {
   const resp = await fetch(
     "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id
   );
-  const mealId = await resp.json();
-  console.log(mealId);
+  const meal = await resp.json();
+  console.log("Meal By Id:", meal);
+  return meal;
 }
 
 async function getMealsBySearch(term) {
@@ -84,4 +87,30 @@ function removeMealFromS(mealId) {
     "mealIds",
     JSON.stringify(mealIds.filter((id) => id !== mealId))
   );
+}
+
+async function fetchFavMeals() {
+  const mealIds = getMealsFromStorage();
+
+  for (let i = 0; i < mealIds.length; i++) {
+    const mealId = mealIds[i];
+
+    meal = await getMealById(mealId);
+    addMealToFav(meal);
+  }
+}
+
+function addMealToFav(mealData) {
+  const favMeal = document.createElement("li");
+  favMeal.classList.add("meal");
+
+  favMeal.innerHTML = `
+        <img
+        src="${mealData.strMealThumb}"
+        alt="${mealData.strMeal}";
+      />
+      <span>${mealData.strMeal}</span>
+        `;
+
+  favContainer.appendChild(favMeal);
 }
