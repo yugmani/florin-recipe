@@ -73,8 +73,25 @@ input:focus {
 
 .fav-meals li {
   /* background: #fff; */
-  width: 85px;
+  width: 75px;
   margin: 5px;
+  position: relative;
+}
+
+.fav-meals li .clear {
+  background-color: transparent;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  border: none;
+  font-size: 1.2rem;
+  opacity: 0;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+.fav-meals li:hover .clear {
+  opacity: 1;
 }
 
 .fav-meals li img {
@@ -87,13 +104,19 @@ input:focus {
 }
 
 .fav-meals li span {
+  display: inline-block;
   font-size: 0.9rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 75px;
 }
 
 .meal {
   margin: 1.5rem;
   box-shadow: 0 0 10px 2px #cfcfca;
   border-radius: 3px;
+  overflow: hidden;
 }
 
 .meal-header {
@@ -132,6 +155,11 @@ input:focus {
   font-size: 1.2rem;
   color: rgb(197, 188, 188);
   cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+.meal-body .fav-btn:hover {
+  transform: scale(1.5);
 }
 
 .meal-body .fav-btn.active {
