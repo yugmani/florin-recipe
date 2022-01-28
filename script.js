@@ -164,6 +164,20 @@ popupCloseBtn.addEventListener("click", () => {
 function showMealInfo(mealData) {
   mealInfoEl.innerHTML = "";
   const mealEl = document.createElement("div");
+
+  const ingredients = [];
+
+  // get ingredients and measures
+  for (let i = 1; i <= 20; i++) {
+    if (mealData["strIngredient" + i]) {
+      ingredients.push(
+        `${mealData["strIngredient" + i]} - ${mealData["strMeasure" + i]}`
+      );
+    } else {
+      break;
+    }
+  }
+
   mealEl.innerHTML = `
   <h1>${mealData.strMeal}</h1>
         <img
@@ -174,6 +188,16 @@ function showMealInfo(mealData) {
         <p>
          ${mealData.strInstructions}
         </p>
+        <h2>Ingredients </h2>
+        <ul class="ingredients">
+        ${ingredients
+          .map(
+            (ing) => `
+        <li class="ingredient>${ing}</li>
+        `
+          )
+          .join("")}
+        </ul>
         `;
   mealInfoEl.appendChild(mealEl);
   mealPopup.classList.remove("hidden");

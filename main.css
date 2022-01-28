@@ -216,9 +216,18 @@ input:focus {
 
 .meal-info {
   margin: 0 auto;
+  font-size: 1.5rem;
 }
 
 .meal-info h1 {
   text-align: center;
   padding-bottom: 10px;
+}
+
+.meal-info h2 {
+  margin-top: 15px;
+}
+
+.ingredients {
+  padding: 1rem 2rem;
 }
